@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Structure Examples</title>
+</head>
+<body>
+
+    <h1>HTML Structure Assignments</h1>
+
+    <h2>1. Resume Page</h2>
+    <header>
+        <h1>John Doe</h1>
+        <p>Email: john.doe@email.com | Phone: (123) 456-7890 | LinkedIn: linkedin.com/in/johndoe</p>
+    </header>
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#skills">Skills</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#education">Education</a>
+    </nav>
+    <main>
+        <section id="about">
+            <h3>About Me</h3>
+            <p>A passionate web developer with a knack for creating simple, clean, and effective web pages. Eager to learn and apply new technologies to solve real-world problems.</p>
+        </section>
+        <section id="skills">
+            <h3>Skills</h3>
+            <ul>
+                <li>HTML5 & Semantic Markup</li>
+                <li>CSS3 & Responsive Design</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Version Control (Git)</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h3>Projects</h3>
+            <ol>
+                <li>Personal Portfolio Website</li>
+                <li>E-commerce Product Catalog Page</li>
+                <li>Conference Schedule Layout</li>
+            </ol>
+        </section>
+        <section id="education">
+            <h3>Education</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Course / Degree</th>
+                        <th>Institute</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B.Sc. in Computer Science</td>
+                        <td>University of Technology</td>
+                        <td>2022</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 John Doe. All rights reserved.</p>
+    </footer>
+    <hr>
+
+    <h2>2. Product Catalog Page</h2>
+    <table border="1" width="100%">
+        <caption>Our Gadgets</caption>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Smartwatch Pro</td>
+                <td><img src="https://via.placeholder.com/100" alt="A sleek black smartwatch"></td>
+                <td>A next-gen smartwatch with health tracking and GPS.</td>
+                <td>$299</td>
+                <td rowspan="2">In Stock</td>
+            </tr>
+            <tr>
+                <td>Wireless Earbuds</td>
+                <td><img src="https://via.placeholder.com/100" alt="A pair of white wireless earbuds"></td>
+                <td>Noise-cancelling earbuds with 24-hour battery life.</td>
+                <td>$149</td>
+            </tr>
+            <tr>
+                <td>Portable Speaker</td>
+                <td><img src="https://via.placeholder.com/100" alt="A compact blue portable speaker"></td>
+                <td>Waterproof Bluetooth speaker with rich bass.</td>
+                <td>$99</td>
+                <td>Out of Stock</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">All prices are in USD. Shipping costs not included.</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    
+    <h2>3. Course Registration Form</h2>
+    <form>
+        <fieldset>
+            <legend>Student Information</legend>
+            <p>
+                <label for="student_name">Full Name:</label>
+                <input type="text" id="student_name" name="student_name">
+            </p>
+            <p>
+                <label for="student_email">Email:</label>
+                <input type="email" id="student_email" name="student_email">
+            </p>
+            <p>
+                <label for="course_select">Select a Course:</label>
+                <select id="course_select" name="course_select">
+                    <option value="html">Introduction to HTML</option>
+                    <option value="css">Advanced CSS Techniques</option>
+                    <option value="js">JavaScript Fundamentals</option>
+                </select>
+            </p>
+        </fieldset>
+    </form>
+    
+    <h3>Available Course Schedules</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Instructor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday & Wednesday</td>
+                <td>6:00 PM - 8:00 PM</td>
+                <td>Dr. Alice Martin</td>
+            </tr>
+            <tr>
+                <td>Tuesday & Thursday</td>
+                <td>7:00 PM - 9:00 PM</td>
+                <td>Prof. Bob Richards</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <h2>4. Company Layout Page</h2>
+    <header>
+        <h1>Innovate Inc.</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Services</a> | <a href="#">Contact</a>
+    </nav>
+    <main>
+        <section>
+            <h2>About Our Company</h2>
+            <p>Innovate Inc. has been a leader in the technology solutions industry for over a decade, providing top-tier services to clients worldwide.</p>
+        </section>
+        <section>
+            <h2>Our Services</h2>
+            <ul>
+                <li>Web Development</li>
+                <li>Mobile App Development</li>
+                <li>Cloud Solutions</li>
+                <li>Digital Marketing</li>
+            </ul>
+        </section>
+    </main>
+    <aside>
+        <blockquote>
+            <p>"Our mission is to empower businesses through technology."</p>
+            <cite>- Jane Smith, CEO</cite>
+        </blockquote>
+    </aside>
+    <footer>
+        <p>Contact us at contact@innovate.com</p>
+        <address>123 Tech Avenue, Silicon Valley, CA 94000</address>
+    </footer>
+    <hr>
+    
+    <h2>5. Nested List Structure (University Hierarchy)</h2>
+    <ul>
+        <li>
+            <strong>University of Science</strong>
+            <ul>
+                <li>
+                    Department of Computer Science
+                    <ol>
+                        <li>
+                            CS101: Introduction to Programming
+                            <ul>
+                                <li>Topic: Variables</li>
+                                <li>Topic: Control Structures</li>
+                            </ul>
+                        </li>
+                        <li>CS202: Data Structures</li>
+                    </ol>
+                </li>
+                <li>
+                    Department of Physics
+                    <ol>
+                        <li>PHY101: Classical Mechanics</li>
+                        <li>PHY201: Electromagnetism</li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+
+    <h2>6. Restaurant Menu Page</h2>
+    <header>
+        <h1>The Gourmet Place</h1>
+    </header>
+    <nav>
+        <a href="#starters">Starters</a> | <a href="#main_course">Main Course</a> | <a href="#desserts">Desserts</a>
+    </nav>
+    <main>
+        <section id="starters">
+            <h3>Starters</h3>
+            <table border="1" width="100%">
+                <tr><th>Dish Name</th><th>Description</th><th>Price</th></tr>
+                <tr><td>Bruschetta</td><td>Grilled bread with tomatoes, garlic, and olive oil.</td><td>$8</td></tr>
+                <tr><td>Spring Rolls</td><td>Crispy rolls filled with fresh vegetables.</td><td>$7</td></tr>
+            </table>
+        </section>
+        <section id="main_course">
+            <h3>Main Course</h3>
+            <table border="1" width="100%">
+                <tr><th>Dish Name</th><th>Description</th><th>Price</th></tr>
+                <tr><td>Grilled Salmon</td><td>Salmon fillet served with asparagus and lemon butter sauce.</td><td>$22</td></tr>
+                <tr><td>Pasta Alfredo</td><td>Fettuccine pasta in a creamy parmesan sauce.</td><td>$16</td></tr>
+            </table>
+        </section>
+        <section id="desserts">
+            <h3>Desserts</h3>
+            <table border="1" width="100%">
+                <tr><th>Dish Name</th><th>Description</th><th>Price</th></tr>
+                <tr><td>Tiramisu</td><td>Classic Italian coffee-flavored dessert.</td><td>$9</td></tr>
+                <tr><td>Cheesecake</td><td>New York style cheesecake with a berry compote.</td><td>$9</td></tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us: (555) 123-4567 | 456 Culinary Lane, Foodville</p>
+    </footer>
+    <hr>
+    
+    <h2>7. Conference Schedule Page</h2>
+    <table border="1" width="100%">
+        <caption>Tech Conference 2025 Schedule</caption>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Topic</th>
+                <th>Speaker</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="3"><strong>Morning Session</strong></td>
+            </tr>
+            <tr>
+                <td>9:00 AM - 10:00 AM</td>
+                <td>The Future of AI</td>
+                <td>Dr. Eva Rostova</td>
+            </tr>
+            <tr>
+                <td>10:30 AM - 11:30 AM</td>
+                <td>Quantum Computing 101</td>
+                <td>Prof. Kenji Tanaka</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Afternoon Session</strong></td>
+            </tr>
+            <tr>
+                <td>1:00 PM - 2:30 PM</td>
+                <td>Workshop: Building with HTML5</td>
+                <td>Maria Garcia</td>
+            </tr>
+            <tr>
+                <td>3:00 PM - 4:00 PM</td>
+                <td>Cybersecurity Trends</td>
+                <td>David Chen</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Schedule is subject to change.</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+
+    <h2>8. Student Report Page</h2>
+    <h1>Global Knowledge Academy</h1>
+    <h3>Student Report Card: Mark Johnson</h3>
+    <table border="1" width="50%">
+        <thead>
+            <tr>
+                <th title="Serial Number">S.No.</th>
+                <th>Subject</th>
+                <th>Marks Obtained</th>
+                <th>Total Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mathematics</td>
+                <td>95</td>
+                <td rowspan="5" style="text-align: center;">100</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Science</td>
+                <td>92</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>English</td>
+                <td>88</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>History</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Geography</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Total & Percentage</th>
+                <td>450</td>
+                <td>90%</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    
+    <h2>9. Travel Destination Page</h2>
+    <header>
+        <h1>Top 3 Travel Destinations</h1>
+    </header>
+    <main>
+        <article>
+            <h2>1. Kyoto, Japan</h2>
+            <img src="https://via.placeholder.com/200" alt="A serene Japanese temple in Kyoto">
+            <p>Kyoto offers a tranquil escape with its beautiful temples, traditional gardens, and historic geisha districts. It's a perfect blend of ancient culture and modern convenience.</p>
+            <blockquote>
+                <p>"A truly magical city. The atmosphere is peaceful and inspiring."</p>
+            </blockquote>
+        </article>
+        <article>
+            <h2>2. Rome, Italy</h2>
+            <img src="https://via.placeholder.com/200" alt="The Colosseum in Rome under a blue sky">
+            <p>The eternal city, Rome is a living museum. From the Colosseum to the Vatican, every corner is steeped in history, art, and incredible food.</p>
+            <blockquote>
+                <p>"Walking through Rome is like walking through history. Unforgettable."</p>
+            </blockquote>
+        </article>
+        <article>
+            <h2>3. Queenstown, New Zealand</h2>
+            <img src="https://via.placeholder.com/200" alt="A stunning mountain and lake landscape in Queenstown">
+            <p>Known as the adventure capital of the world, Queenstown is set against a backdrop of majestic mountains and a crystal-clear lake, offering breathtaking views and thrilling activities.</p>
+            <blockquote>
+                <p>"The scenery is out of this world. An adventurer's paradise!"</p>
+            </blockquote>
+        </article>
+    </main>
+    <aside>
+        <h3>Travel Tips</h3>
+        <ul>
+            <li>Pack light</li>
+            <li>Learn a few local phrases</li>
+            <li>Stay hydrated</li>
+            <li>Keep digital copies of documents</li>
+        </ul>
+    </aside>
+    <footer>
+        <p>© 2025 Travel Wonders</p>
+    </footer>
+    <hr>
+    
+    <h2>10. Dropdown-based Selection Page</h2>
+    <form>
+        <p>
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="usa">USA</option>
+                <option value="canada" selected>Canada</option>
+                <option value="uk">UK</option>
+            </select>
+        </p>
+        <p>
+            <label for="state">State/Province:</label>
+            <select id="state" name="state">
+                <option value="ontario" selected>Ontario</option>
+                <option value="quebec">Quebec</option>
+                <option value="bc">British Columbia</option>
+            </select>
+        </p>
+        <p>
+            <label for="city">City:</label>
+            <select id="city" name="city">
+                <option value="toronto" selected>Toronto</option>
+                <option value="montreal">Montreal</option>
+                <option value="vancouver">Vancouver</option>
+            </select>
+        </p>
+        <p>
+            <label for="place">Favorite Tourist Place:</label>
+            <select id="place" name="place">
+                <option value="cn_tower" selected>CN Tower</option>
+                <option value="niagara">Niagara Falls</option>
+                <option value="stanley_park">Stanley Park</option>
+            </select>
+        </p>
+    </form>
+    <p>Your current selection is: CN Tower in Toronto, Ontario, Canada.</p>
+    <hr>
+
+    <h2>11. News Layout Page</h2>
+    <header>
+        <h1>The Daily Chronicle</h1>
+    </header>
+    <nav>
+        <a href="#">Sports</a> | <a href="#">Technology</a> | <a href="#">Politics</a>
+    </nav>
+    <main>
+        <article>
+            <h3>Tech Giant Unveils New AI Model</h3>
+            <p><time datetime="2025-10-12">October 12, 2025</time></p>
+            <p>A leading technology company has announced a breakthrough AI that can understand and generate human-like text with unprecedented accuracy. <a href="#">Read more...</a></p>
+        </article>
+        <article>
+            <h3>World Cup Finals See Dramatic Finish</h3>
+            <p><time datetime="2025-10-11">October 11, 2025</time></p>
+            <p>The final match of the World Cup concluded with a last-minute goal, securing a historic victory for the underdog team. <a href="#">Read more...</a></p>
+        </article>
+        <article>
+            <h3>New Environmental Policy Announced</h3>
+            <p><time datetime="2025-10-10">October 10, 2025</time></p>
+            <p>Leaders gathered to sign a new international treaty aimed at reducing carbon emissions by 30% over the next decade. <a href="#">Read more...</a></p>
+        </article>
+    </main>
+    <aside>
+        <h4>Popular Topics</h4>
+        <ul>
+            <li>Artificial Intelligence</li>
+            <li>Climate Change</li>
+            <li>Global Economy</li>
+        </ul>
+    </aside>
+    <footer>
+        <p>Contact: editor@daily-chronicle.com | © 2025 The Daily Chronicle. All rights reserved.</p>
+    </footer>
+    <hr>
+
+    <h2>12. Quotation Showcase Page</h2>
+    <section>
+        <h2>On Innovation</h2>
+        <blockquote>
+            <p>Innovation distinguishes between a leader and a follower.</p>
+            <cite>- Steve Jobs</cite>
+        </blockquote>
+    </section>
+    <section>
+        <h2>On Persistence</h2>
+        <blockquote>
+            <p>It does not matter how slowly you go as long as you do not stop.</p>
+            <cite>- Confucius</cite>
+        </blockquote>
+    </section>
+    <section>
+        <h2>On Imagination</h2>
+        <blockquote>
+            <p>The true sign of intelligence is not knowledge but imagination.</p>
+            <cite>- Albert Einstein</cite>
+        </blockquote>
+    </section>
+    <p>Quotes inspire people by offering wisdom, motivation, and perspective in a concise and memorable format, often connecting us to the thoughts of great minds throughout history.</p>
+    <hr>
+    
+    <h2>13. Blog Layout Page</h2>
+    <header>
+        <h1>My Coding Journey</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a> | <a href="#">Blogs</a> | <a href="#">About</a>
+    </nav>
+    <main>
+        <article>
+            <h2>My First Blog Post: Why HTML Matters</h2>
+            <p>Posted on <time datetime="2025-10-01">October 1, 2025</time></p>
+            <p>Starting my journey into web development, I've realized that a strong foundation in HTML is non-negotiable. It's the skeleton of every website.</p>
+            <blockquote>
+                <p>Without a solid skeleton, the body cannot stand. The same is true for a website and its HTML structure.</p>
+            </blockquote>
+        </article>
+        <article>
+            <h2>Things I Learned This Week</h2>
+            <p>Posted on <time datetime="2025-10-08">October 8, 2025</time></p>
+            <p>This week was all about semantic HTML. Using tags like `article`, `section`, and `nav` not only organizes the code but also improves accessibility.</p>
+            <blockquote>
+                <p>Clean code isn't just for machines; it's for the people who will maintain it later.</p>
+            </blockquote>
+        </article>
+    </main>
+    <footer>
+        <p>Written by [Your Name]</p>
+    </footer>
+    <hr>
+
+    <h2>14. Movie Database Page</h2>
+    <table border="1" width="100%">
+        <caption>My Favorite Movies</caption>
+        <thead>
+            <tr>
+                <th>Movie Name</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th title="Internet Movie Database Rating">IMDB Rating</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Inception</td>
+                <td>Sci-Fi, Thriller</td>
+                <td>2010</td>
+                <td>8.8/10</td>
+                <td><a href="#">IMDB Page</a></td>
+            </tr>
+            <tr>
+                <td>The Shawshank Redemption</td>
+                <td>Drama</td>
+                <td>1994</td>
+                <td>9.3/10</td>
+                <td><a href="#">IMDB Page</a></td>
+            </tr>
+            <tr>
+                <td>The Dark Knight</td>
+                <td>Action, Crime</td>
+                <td>2008</td>
+                <td>9.0/10</td>
+                <td><a href="#">IMDB Page</a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5"><small>Note: Ratings are subject to change.</small></td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    
+    <h2>15. Portfolio Layout Page</h2>
+    <header>
+        <h1>Jane Anderson</h1>
+        <p>Frontend Developer</p>
+    </header>
+    <nav>
+        <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Skills</a> | <a href="#">Projects</a>
+    </nav>
+    <main>
+        <section>
+            <h3>About Me</h3>
+            <p>I am a creative frontend developer dedicated to building beautiful and user-friendly web applications.</p>
+            <blockquote>
+                <p>"Design is not just what it looks like and feels like. Design is how it works."</p>
+                <cite>- Steve Jobs</cite>
+            </blockquote>
+        </section>
+        <section>
+            <h3>Skills</h3>
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript & React</li>
+                <li>UI/UX Design Principles</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Projects</h3>
+            <ol>
+                <li>Responsive E-commerce Site</li>
+                <li>Interactive Data Dashboard</li>
+                <li>Personal Blog Platform</li>
+            </ol>
+        </section>
+    </main>
+    <aside>
+        <h4>Contact Info</h4>
+        <p>Email: jane.anderson@email.com</p>
+        <p>Phone: (987) 654-3210</p>
+        <p>LinkedIn: <a href="#">linkedin.com/in/janeanderson</a></p>
+    </aside>
+    <footer>
+        <p>© 2025 Jane Anderson. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
