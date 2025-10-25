@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Student Information Form</title>
+  <!-- Collects student details and uses a select dropdown for course selection.
+       The default option is disabled and selected to force the user to choose. -->
+</head>
+<body>
+  <h2>Student Information</h2>
+  <form action="#" method="post">
+    <label>Name: <input type="text" name="name" required></label><br><br>
+    <label>Roll Number: <input type="text" name="roll" required></label><br><br>
+    <label>Course:
+      <select name="course" required>
+        <option value="" disabled selected>Select Course</option>
+        <option value="btech">B.Tech</option>
+        <option value="bca">BCA</option>
+        <option value="mca">MCA</option>
+        <option value="bsc">B.Sc</option>
+      </select>
+    </label><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

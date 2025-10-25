@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Form Security Attributes</title>
+  <!-- Demonstrates using autocomplete="off" and required attributes to improve form security and validation. -->
+</head>
+<body>
+  <h2>Secure Form</h2>
+  <form action="#" method="post" autocomplete="off">
+    <label>Username: <input type="text" name="username" required></label><br><br>
+    <label>Password: <input type="password" name="password" required></label><br><br>
+    <button type="submit">Login</button>
+  </form>
+  <p>Note: Turning off autocomplete prevents the browser from storing or auto-filling sensitive fields, reducing the risk of credential leakage on shared devices.</p>
+</body>
+</html>

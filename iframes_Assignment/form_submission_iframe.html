@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Form Submission via Iframe</title>
+  <!-- The form targets an iframe so that on submission the result page loads inside the iframe. -->
+</head>
+<body>
+  <h2>Form (will load result in the iframe below)</h2>
+  <form action="helper_files/result_page.html" method="get" target="resultframe">
+    <label>Enter text: <input type="text" name="message" required></label>
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+  <iframe name="resultframe" width="80%" height="150" title="Result Frame"></iframe>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Login Form with CSRF Token</title>
+  <!-- Login form includes a hidden input to simulate a CSRF token.
+       In real applications, the server generates and validates this token to
+       protect against cross-site request forgery attacks. -->
+</head>
+<body>
+  <h2>Login</h2>
+  <form action="#" method="post">
+    <label>Username: <input type="text" name="username" required></label><br><br>
+    <label>Password: <input type="password" name="password" required></label><br><br>
+    <!-- Hidden CSRF token (dummy value for the assignment). Servers should
+         verify this value on form submission to ensure the request is genuine. -->
+    <input type="hidden" name="csrf_token" value="dummy_csrf_token_12345">
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

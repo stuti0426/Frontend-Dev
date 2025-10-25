@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frameset Navigation Layout</title>
+  <!-- Note: <frameset> and <frame> are obsolete in HTML5 but are used here
+       because the assignment explicitly requests them. Modern pages use
+       CSS and iframes for similar layouts. -->
+</head>
+
+<frameset rows="100,*" border="1">
+  <!-- Top frame contains simple navigation links -->
+  <frame src="helper_files/nav_links.html" name="topframe" title="Navigation Links">
+
+  <!-- Bottom frame displays a welcome message -->
+  <frame src="helper_files/welcome_message.html" name="bottomframe" title="Welcome">
+
+  <noframes>
+    <body>
+      Your browser does not support frames. Please use a modern browser.
+    </body>
+  </noframes>
+</frameset>
+</html>

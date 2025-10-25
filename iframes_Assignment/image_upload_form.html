@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Image Upload Form</title>
+  <!-- File upload restricted to .jpg and .png using the accept attribute. -->
+</head>
+<body>
+  <h2>Upload an Image</h2>
+  <p>Allowed file types: .jpg, .jpeg, .png</p>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/png, image/jpeg" required>
+    <br><br>
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>
