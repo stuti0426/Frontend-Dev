@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model & Positioning Webpage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: #fff;
+      padding: 15px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('https://via.placeholder.com/1500x600') center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      background: rgba(0,0,0,0.5);
+      padding: 20px 40px;
+      border-radius: 10px;
+      border: 2px solid white;
+      outline: 3px solid rgba(255,255,255,0.3);
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 10%;
+      background: #fff;
+    }
+
+    .about .text, .about .image {
+      flex: 1 1 45%;
+      padding: 20px;
+    }
+
+    .about .image img {
+      width: 100%;
+      border-radius: 10px;
+      border: 3px solid #8f94fb;
+      outline: 2px solid rgba(78,84,200,0.3);
+    }
+
+    /* Services Section */
+    .services {
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .service-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 40px;
+    }
+
+    .service {
+      background: #fff;
+      flex: 1 1 30%;
+      margin: 15px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 2px solid #66a6ff;
+      transition: transform 0.3s;
+      position: relative;
+    }
+
+    .service:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: #fff;
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4e54c8;
+      box-shadow: 0 0 5px rgba(78,84,200,0.5);
+    }
+
+    button {
+      background: #4e54c8;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #8f94fb;
+    }
+
+    /* Footer */
+    footer {
+      background: #4e54c8;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      position: relative;
+    }
+
+    footer::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      border-bottom: 2px solid rgba(255,255,255,0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+      }
+      .service {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>My Webpage</h2>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1>Welcome to My Awesome Website</h1>
+  </section>
+
+  <section class="about" id="about">
+    <div class="text">
+      <h2>About Us</h2>
+      <p>
+        We are a creative agency focused on delivering innovative digital experiences.
+        Our mission is to bring ideas to life with beautiful designs and efficient technology.
+      </p>
+      <p>
+        Our team of professionals is dedicated to crafting responsive, modern, and user-friendly interfaces that make a difference.
+      </p>
+    </div>
+    <div class="image">
+      <img src="https://via.placeholder.com/500x300" alt="About Image">
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-boxes">
+      <div class="service">
+        <h3>Web Design</h3>
+        <p>Beautiful, responsive, and fast websites tailored to your needs.</p>
+      </div>
+      <div class="service">
+        <h3>App Development</h3>
+        <p>Custom mobile and web applications built using modern technologies.</p>
+      </div>
+      <div class="service">
+        <h3>Digital Marketing</h3>
+        <p>Boost your online presence and reach your audience effectively.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Webpage. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

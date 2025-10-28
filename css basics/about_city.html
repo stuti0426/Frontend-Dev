@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Paris</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #222;
+    }
+
+    header {
+      background: #1e293b;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #334155;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      padding: 100px 10%;
+      text-align: center;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    /* Section 1 - Background image with parallax */
+    .intro {
+      background: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34') center/cover no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    /* Section 2 - Linear gradient */
+    .culture {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #fff;
+    }
+
+    /* Section 3 - Background image with parallax */
+    .landmarks {
+      background: url('https://images.unsplash.com/photo-1543349689-9b9e7d2b6d2f') center/cover no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    /* Section 4 - Radial gradient */
+    .food {
+      background: radial-gradient(circle, #fef3c7, #fcd34d);
+      color: #222;
+    }
+
+    footer {
+      background: #1e293b;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 60px 8%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Discover Paris</h1>
+  </header>
+
+  <nav>
+    <a href="#intro">Home</a>
+    <a href="#culture">Culture</a>
+    <a href="#landmarks">Landmarks</a>
+    <a href="#food">Food</a>
+  </nav>
+
+  <main>
+    <section class="intro" id="intro">
+      <h2>Welcome to Paris</h2>
+      <p>The City of Lights, known for its romance, architecture, and art, stands as a symbol of culture and beauty. From the Eiffel Tower to the Louvre, every street tells a story.</p>
+    </section>
+
+    <section class="culture" id="culture">
+      <h2>Rich Culture</h2>
+      <p>Parisian culture is a blend of history, fashion, and creativity. The city is home to world-famous museums, artists, and designers, making it a hub of inspiration.</p>
+    </section>
+
+    <section class="landmarks" id="landmarks">
+      <h2>Iconic Landmarks</h2>
+      <p>Marvel at the Eiffel Tower, stroll through the Champs-Élysées, or visit the historic Notre-Dame Cathedral. Every landmark in Paris carries timeless charm.</p>
+    </section>
+
+    <section class="food" id="food">
+      <h2>Delicious Cuisine</h2>
+      <p>From croissants and baguettes to gourmet dishes, Parisian cuisine delights every food lover. Cafés and patisseries offer a taste of authentic French indulgence.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Explore Paris | Designed by Stuti
+  </footer>
+</body>
+</html>

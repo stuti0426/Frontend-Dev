@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+      padding: 15px;
+      transition: opacity 0.4s ease;
+      font-size: 1rem;
+    }
+
+    .photo:hover img {
+      transform: scale(1.1);
+    }
+
+    .photo:hover .caption {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>My Photo Gallery</h1>
+  
+  <div class="gallery">
+    <div class="photo">
+      <img src="https://picsum.photos/400/300?random=1" alt="Gallery Image 1">
+      <div class="caption">Beautiful Mountains</div>
+    </div>
+    <div class="photo">
+      <img src="https://picsum.photos/400/300?random=2" alt="Gallery Image 2">
+      <div class="caption">Serene Lake</div>
+    </div>
+    <div class="photo">
+      <img src="https://picsum.photos/400/300?random=3" alt="Gallery Image 3">
+      <div class="caption">Forest Path</div>
+    </div>
+    <div class="photo">
+      <img src="https://picsum.photos/400/300?random=4" alt="Gallery Image 4">
+      <div class="caption">Desert Dunes</div>
+    </div>
+    <div class="photo">
+      <img src="https://picsum.photos/400/300?random=5" alt="Gallery Image 5">
+      <div class="caption">Sunset Beach</div>
+    </div>
+    <div class="photo">
+      <img src="https://picsum.photos/400/300?random=6" alt="Gallery Image 6">
+      <div class="caption">Snowy Peaks</div>
+    </div>
+  </div>
+</body>
+</html>

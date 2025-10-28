@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 1.2rem;
+      z-index: 1000;
+    }
+
+    .container {
+      display: flex;
+      margin-top: 60px;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #34495e;
+      color: white;
+      padding: 20px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 10px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #1abc9c;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-evenly;
+    }
+
+    .box {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 45%;
+      min-width: 300px;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+
+      .main {
+        justify-content: center;
+      }
+
+      .box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Dashboard Header
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Navigation</h2>
+      <a href="#">Home</a>
+      <a href="#">Reports</a>
+      <a href="#">Analytics</a>
+      <a href="#">Settings</a>
+      <a href="#">Logout</a>
+    </aside>
+
+    <main class="main">
+      <div class="box">
+        <h3>Sales Overview</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ante ac velit.</p>
+      </div>
+
+      <div class="box">
+        <h3>Recent Activities</h3>
+        <p>Integer blandit justo sit amet velit pharetra, vitae sagittis ex malesuada.</p>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
