@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout</title>
+    <style>
+        /* Reset defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f6fa;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 4fr; /* Sidebar and main area */
+            grid-template-rows: 70px auto; /* Header and content */
+            grid-template-areas:
+                "header header"
+                "sidebar main";
+            gap: 15px;
+            padding: 15px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            grid-area: header;
+            background-color: #1f1f1f;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 10px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        aside {
+            grid-area: sidebar;
+            background-color: #2f3640;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        aside h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 8px 15px;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #353b48;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 200px;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* One box spanning two columns */
+        .wide {
+            grid-column: span 2;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 900px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: 70px auto auto;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main";
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .wide {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        Dashboard Overview
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside>
+        <h2>Menu</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Analytics</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box wide">Wide Box (Spans 2 Columns)</div>
+        <div class="box">Box 4</div>
+    </main>
+</body>
+</html>

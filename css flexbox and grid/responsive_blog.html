@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Blog Layout</title>
+    <style>
+        /* Reset defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f8fa;
+            color: #333;
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            grid-area: header;
+            background-color: #1f1f1f;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00a8ff;
+        }
+
+        /* ===== SIDEBAR ===== */
+        aside {
+            grid-area: sidebar;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        aside h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        li a:hover {
+            color: #0077ff;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .post {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .post h3 {
+            margin-bottom: 10px;
+            color: #1f1f1f;
+        }
+
+        .post p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .post a {
+            margin-top: 10px;
+            text-decoration: none;
+            color: #0077ff;
+            font-weight: 600;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            grid-area: footer;
+            background-color: #1f1f1f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 800px) {
+            body {
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Stuti’s Blog</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Posts</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside>
+        <h2>Categories</h2>
+        <ul>
+            <li><a href="#">AI & Machine Learning</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Data Science</a></li>
+            <li><a href="#">College Projects</a></li>
+            <li><a href="#">Personal Growth</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="post">
+            <h3>Building My First AI Chatbot</h3>
+            <p>
+                In this post, I’ll share my journey of developing a chatbot using generative AI and LangChain. 
+                Learn how I integrated LLMs to provide dynamic, context-aware responses.
+            </p>
+            <a href="#">Read More →</a>
+        </div>
+
+        <div class="post">
+            <h3>Understanding CSS Grid Layout</h3>
+            <p>
+                CSS Grid has revolutionized web design by simplifying responsive layouts. 
+                Here’s a step-by-step guide to mastering grid-template-areas and fractional units.
+            </p>
+            <a href="#">Read More →</a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Stuti Agrawal | Contact: stuti@example.com
+    </footer>
+</body>
+</html>

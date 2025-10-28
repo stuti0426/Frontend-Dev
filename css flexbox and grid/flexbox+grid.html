@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Flex + Grid Layout</title>
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #f5f6fa;
+      color: #333;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2f3640;
+      color: white;
+      padding: 15px 40px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: fadeIn 1.5s ease;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00a8ff;
+    }
+
+    /* ---------- MAIN GRID LAYOUT ---------- */
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      padding: 30px 40px;
+    }
+
+    article {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      animation: moveUp 1s ease;
+    }
+
+    /* ---------- FLEXBOX INSIDE ARTICLE ---------- */
+    .boxes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .box {
+      flex: 1 1 30%;
+      background-color: #dcdde1;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      background-color: #00a8ff;
+      color: white;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    aside {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2f3640;
+      color: white;
+      height: 60px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes moveUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 800px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .boxes {
+        flex-direction: column;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN AREA -->
+  <main>
+    <article>
+      <h2>Welcome to My Responsive Layout</h2>
+      <p>This layout combines Flexbox and CSS Grid to create a modern, adaptable webpage design.</p>
+      <div class="boxes">
+        <div class="box">Service 1</div>
+        <div class="box">Service 2</div>
+        <div class="box">Service 3</div>
+      </div>
+    </article>
+
+    <aside>
+      <h3>Sidebar</h3>
+      <p>Useful links, recent posts, or updates can be placed here.</p>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 MyPortfolio. All rights reserved.
+  </footer>
+
+</body>
+</html>
