@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px;
+}
+
+.box {
+  width: 200px;
+  padding: 20px;
+  border: 5px solid #007bff;
+  background: #e9f2ff;
+}
+
+.default-box {
+  box-sizing: content-box;
+}
+
+.border-box {
+  box-sizing: border-box;
+  background: #cfe2ff;
+}

@@ -1,0 +1,98 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f5f8;
+  margin: 0;
+  padding: 20px;
+}
+
+header, footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #dce8ff;
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.example {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+}
+
+/* :hover Example */
+a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: white;
+  background-color: #0077cc;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* :focus Example */
+input {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.5);
+}
+
+/* :active Example */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:active {
+  transform: translateY(2px);
+  background-color: #1e7e34;
+}
+
+/* :nth-child Example */
+.demo-list {
+  list-style-type: none;
+  padding: 0;
+}
+.demo-list li {
+  padding: 8px;
+  margin: 4px 0;
+  background-color: #e2e6ea;
+  border-radius: 5px;
+}
+.demo-list li:nth-child(odd) {
+  background-color: #bcd4ff;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

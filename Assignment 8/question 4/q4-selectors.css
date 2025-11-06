@@ -1,0 +1,45 @@
+/* Element selector */
+p {
+  color: #333;
+}
+
+/* Class selector */
+.highlight {
+  color: #0077cc;
+  font-weight: bold;
+}
+
+/* ID selector */
+#unique {
+  color: #e63946;
+  background-color: #ffe6e6;
+  padding: 5px;
+}
+
+/* Attribute selector */
+a[target="_blank"] {
+  color: green;
+  text-decoration: underline;
+}
+
+/* Combinators */
+.combinator > p {
+  color: purple;
+}
+.combinator + p {
+  color: orange;
+}
+
+/* General layout */
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f5f9;
+  margin: 0;
+  padding: 20px;
+}
+header, footer {
+  text-align: center;
+  background: #cce5ff;
+  padding: 10px;
+  border-radius: 10px;
+}
