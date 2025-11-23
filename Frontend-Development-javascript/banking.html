@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2: Banking Interest</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 2: The Banking Interest Calculator</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 2. The Banking Interest Calculator [cite: 18]
+
+        // --- Input Variables [cite: 24] ---
+        // Change these to test different scenarios.
+        let accountType = 'Fixed Deposit'; // Can be 'Savings' or 'Fixed Deposit'
+        let amount = 120000; // Deposit amount in ₹
+        let years = 5; // Number of years
+
+        // --- Logic Implementation ---
+
+        // Initialize a variable for the interest rate.
+        let baseRate = 0;
+
+        // Determine the base interest rate based on account type.
+        // Rule: Savings account: 4% [cite: 20]
+        if (accountType === 'Savings') {
+            baseRate = 4;
+        // Rule: Fixed deposit: 6.5% [cite: 21]
+        } else if (accountType === 'Fixed Deposit') {
+            baseRate = 6.5;
+        } else {
+            console.log("Error: Invalid account type.");
+        }
+
+        // Initialize a variable for the bonus interest.
+        let bonusRate = 0;
+
+        // Rule: If user deposits > ₹1,00,000, add 1% bonus [cite: 22]
+        if (amount > 100000) {
+            bonusRate = 1;
+        }
+
+        // Calculate the total applicable interest rate.
+        let totalRate = baseRate + bonusRate;
+
+        // Calculate the final balance using the provided compound interest formula [cite: 26]
+        // Formula: total = amount * Math.pow((1 + rate/100), years)
+        let finalBalance = amount * Math.pow((1 + totalRate / 100), years);
+
+        // --- Output ---
+        console.log("--- Banking Interest Calculator ---");
+        console.log("Account Type: " + accountType);
+        console.log("Principal Amount: ₹" + amount);
+        console.log("Years: " + years);
+        console.log("Base Rate: " + baseRate + "%");
+        console.log("Bonus Rate: " + bonusRate + "%");
+        console.log("Total Rate: " + totalRate + "%");
+        console.log("-----------------------------------");
+
+        // Print the final balance, rounded to two decimals as required [cite: 26]
+        console.log("Final Balance after " + years + " years: ₹" + finalBalance.toFixed(2));
+    </script>
+</body>
+</html>

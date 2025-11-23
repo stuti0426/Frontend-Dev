@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 1: E-Commerce Delivery</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 1: The E-Commerce Delivery Estimator</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 1. The E-Commerce Delivery Estimator [cite: 6]
+
+        // --- Input Variables [cite: 14] ---
+        // These values can be changed to test different scenarios.
+        let orderAmount = 450;
+        let isPremium = false;
+        let isRemote = true;
+
+        // --- Logic Implementation ---
+
+        // Initialize variables for total cost and delivery time.
+        let totalCost;
+        let deliveryTime;
+        let deliveryFee = 0;
+
+        // Rule: Delivery time is 3 days normally [cite: 12]
+        deliveryTime = 3; 
+
+        // Rule: If the order is below ₹500, add a ₹50 delivery fee [cite: 10]
+        if (orderAmount < 500) {
+            deliveryFee = 50;
+        }
+
+        // Rule: If the user is a premium member, the delivery fee is waived [cite: 11]
+        // This check comes *after* the first fee check to ensure it has higher priority.
+        if (isPremium) {
+            deliveryFee = 0;
+        }
+
+        // Rule: If the address is "remote," add 2 extra days [cite: 12]
+        if (isRemote) {
+            deliveryTime = deliveryTime + 2;
+        }
+
+        // Calculate the final total cost
+        totalCost = orderAmount + deliveryFee;
+
+        // --- Output ---
+        // Print the results to the console[cite: 5, 16, 17].
+        console.log("--- E-Commerce Delivery Estimator ---");
+        console.log("Input Order Amount: ₹" + orderAmount);
+        console.log("Is Premium Member: " + isPremium);
+        console.log("Is Remote Location: " + isRemote);
+        console.log("-------------------------------------");
+
+        // Print the calculated total cost [cite: 16]
+        console.log("Total Cost: ₹" + totalCost);
+
+        // Print the estimated delivery time [cite: 17]
+        console.log("Estimated Delivery Time: " + deliveryTime + " days");
+    </script>
+</body>
+</html>

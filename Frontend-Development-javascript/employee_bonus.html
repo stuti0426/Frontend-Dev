@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 8: Employee Bonus</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 8: The Employee Bonus Distribution</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 8. The Employee Bonus Distribution [cite: 77]
+
+        // --- Input Variables ---
+        // Change these to test different scenarios.
+        let rating = 5; // Performance rating (1-5)
+        let experience = 10; // Years of experience
+        let baseSalary = 120000; // Base salary in ₹
+
+        // --- Logic Implementation ---
+
+        // 1. Determine Base Bonus Percent from Rating
+        let baseBonusPercent = 0;
+        switch (rating) {
+            case 5:
+                baseBonusPercent = 20; // [cite: 79]
+                break;
+            case 4:
+                baseBonusPercent = 15; // [cite: 81]
+                break;
+            case 3:
+                baseBonusPercent = 10; // [cite: 83]
+                break;
+            default:
+                baseBonusPercent = 0; // Rating below 3 -> no bonus [cite: 85]
+        }
+
+        // 2. Determine Experience Bonus Percent
+        let experienceBonusPercent = 0;
+        // Rule: If experience > 5 years, add extra 5% bonus [cite: 86]
+        if (experience > 5) {
+            experienceBonusPercent = 5;
+        }
+
+        // 3. Calculate Total Bonus Percent and Calculated Bonus
+        let totalBonusPercent = baseBonusPercent + experienceBonusPercent;
+        let calculatedBonus = baseSalary * (totalBonusPercent / 100);
+
+        // 4. Apply Bonus Cap
+        let finalBonus = calculatedBonus;
+        let isCapped = false;
+
+        // Rule: If base salary > 1,00,000, cap total bonus at 25,000 [cite: 87]
+        if (baseSalary > 100000) {
+            if (calculatedBonus > 25000) {
+                finalBonus = 25000;
+                isCapped = true;
+            }
+        }
+
+        // 5. Calculate Total Salary
+        let totalSalary = baseSalary + finalBonus;
+
+        // --- Output ---
+        console.log("--- Employee Bonus Summary ---");
+        console.log("Base Salary: ₹" + baseSalary);
+        console.log("Rating: " + rating);
+        console.log("Experience: " + experience + " years");
+        console.log("------------------------------");
+        console.log("Base Bonus: " + baseBonusPercent + "%");
+        console.log("Exp. Bonus: " + experienceBonusPercent + "%");
+        console.log("Total Bonus Percent: " + totalBonusPercent + "%");
+        
+        // Print the calculated bonus [cite: 90]
+        console.log("Calculated Bonus: ₹" + calculatedBonus.toFixed(2));
+        
+        // Print if capped [cite: 91]
+        if (isCapped) {
+            console.log("Bonus was capped at ₹25,000 due to salary rules.");
+        }
+        console.log("Final Bonus Paid: ₹" + finalBonus.toFixed(2));
+        
+        // Print the total salary after bonus [cite: 92]
+        console.log("Total Salary (with Bonus): ₹" + totalSalary.toFixed(2));
+    </script>
+</body>
+</html>

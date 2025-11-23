@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 6: Game Reward System</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 6: The Game Reward System</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 6. The Game Reward System [cite: 59]
+
+        // --- Input Variables ---
+        // Change these to test different scenarios.
+        let level = 10;
+        let performanceScore = 85;
+        let missionsCompleted = true;
+
+        // --- Logic Implementation ---
+
+        // 1. Calculate base coins using the formula [cite: 61, 62]
+        // Formula: coins = (level * 50) + (performanceScore * 10)
+        let baseCoins = (level * 50) + (performanceScore * 10);
+
+        // Initialize totalCoins with the base value.
+        let totalCoins = baseCoins;
+
+        // 2. Apply bonus for completing all missions
+        // Rule: If missionsCompleted is true, double the coins [cite: 63]
+        let bonusMessage = "No mission bonus.";
+        if (missionsCompleted === true) {
+            totalCoins = totalCoins * 2;
+            bonusMessage = "Mission completion bonus (x2) applied!";
+        }
+
+        // 3. Assign Rank
+        // Rule: If coins > 1000, rank = "Elite", else "Regular" [cite: 64]
+        let rank = '';
+        if (totalCoins > 1000) {
+            rank = "Elite";
+        } else {
+            rank = "Regular";
+        }
+
+        // --- Output ---
+        // Print all values neatly with descriptive messages [cite: 65]
+        console.log("--- Game Reward System ---");
+        console.log("Player Level: " + level);
+        console.log("Performance Score: " + performanceScore);
+        console.log("All Missions Completed: " + missionsCompleted);
+        console.log("--------------------------");
+        console.log("Base Coins Earned: " + baseCoins);
+        console.log("Mission Bonus: " + bonusMessage);
+        console.log("Total Coins: " + totalCoins);
+        console.log("Player Rank: " + rank);
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 7: Restaurant Billing</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 7: The Restaurant Billing with Tips</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 7. The Restaurant Billing with Tips [cite: 66]
+
+        // --- Input Variables ---
+        // Change these to test different scenarios.
+        let baseFoodCost = 2100; // Base food cost entered by user [cite: 68]
+        let isDiningIn = true; // true for Dining In, false for Takeaway
+
+        // --- Logic Implementation ---
+
+        // 1. Calculate GST
+        // Rule: GST = 5% of base cost [cite: 69]
+        let gst = baseFoodCost * 0.05;
+
+        // 2. Calculate Service Tax
+        let serviceTax = 0;
+        // Rule: Service tax = 10% if dining in, otherwise 0% [cite: 70]
+        if (isDiningIn) {
+            serviceTax = baseFoodCost * 0.10;
+        }
+
+        // Calculate the subtotal (Base + Taxes)
+        let subTotal = baseFoodCost + gst + serviceTax;
+
+        // 3. Calculate Recommended Tip
+        let tip = 0;
+        // Rule: If total bill > 2000, add recommended tip = 8% [cite: 71]
+        // Note: "total bill" is interpreted as the subTotal (Base + Taxes)
+        if (subTotal > 2000) {
+            tip = subTotal * 0.08;
+        }
+
+        // 4. Calculate Final Total
+        let finalTotal = subTotal + tip;
+
+        // --- Output ---
+        // Display a full summary as requested [cite: 72]
+        console.log("--- Restaurant Bill Summary ---");
+        console.log("Dining In: " + isDiningIn);
+        console.log("-------------------------------");
+
+        // 1. Base amount [cite: 73]
+        console.log("Base Food Cost: ₹" + baseFoodCost.toFixed(2));
+
+        // 2. Tax details [cite: 74]
+        console.log("GST (5%):       +₹" + gst.toFixed(2));
+        console.log("Service Tax (10%): +₹" + serviceTax.toFixed(2));
+        console.log("-------------------------------");
+        console.log("Subtotal:       ₹" + subTotal.toFixed(2));
+
+        // 3. Tip amount [cite: 75]
+        console.log("Recommended Tip (8%): +₹" + tip.toFixed(2));
+
+        // 4. Final total (rounded) [cite: 76]
+        console.log("===============================");
+        console.log("Final Total:    ₹" + finalTotal.toFixed(2));
+    </script>
+</body>
+</html>

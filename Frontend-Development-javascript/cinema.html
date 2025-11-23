@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 3: Cinema Ticketing</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 3: The Cinema Ticketing System</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 3. The Cinema Ticketing System [cite: 27]
+
+        // --- Input Variables ---
+        // Change these to test different scenarios.
+        let showTime = 'Evening'; // 'Morning' or 'Evening'
+        let isStudent = false;
+        let age = 65;
+        let ticketCount = 4;
+
+        // --- Logic Implementation ---
+
+        // 1. Calculate Base Price [cite: 35]
+        let baseTicketPrice = 0;
+
+        // Rule: Morning show costs 120 [cite: 29]
+        if (showTime === 'Morning') {
+            baseTicketPrice = 120;
+        // Rule: Evening show costs 180 [cite: 30]
+        } else if (showTime === 'Evening') {
+            baseTicketPrice = 180;
+        }
+
+        // Calculate the total base price for all tickets.
+        let basePrice = baseTicketPrice * ticketCount;
+
+        // 2. Calculate Discounted Total [cite: 36]
+        let discountPercent = 0;
+
+        // Rule: Students get a 10% discount [cite: 32]
+        if (isStudent) {
+            discountPercent = 10;
+        // Rule: Seniors (age > 60) get 20% off [cite: 32]
+        } else if (age > 60) {
+            discountPercent = 20;
+        }
+
+        // Calculate the monetary value of the discount.
+        let discountAmount = basePrice * (discountPercent / 100);
+
+        // Calculate the total after the discount is applied.
+        let discountedTotal = basePrice - discountAmount;
+
+        // 3. Calculate Final Amount (with Service Fee) [cite: 37]
+        let serviceFee = 0;
+
+        // Rule: If user books > 3 tickets, add a flat ₹50 service fee [cite: 33]
+        if (ticketCount > 3) {
+            serviceFee = 50;
+        }
+
+        // Calculate the final amount to be paid.
+        let finalAmount = discountedTotal + serviceFee;
+
+        // --- Output ---
+        console.log("--- Cinema Ticketing System ---");
+        console.log("Show Time: " + showTime);
+        console.log("Tickets: " + ticketCount);
+        console.log("Is Student: " + isStudent);
+        console.log("Age: " + age);
+        console.log("-------------------------------");
+
+        // Print the base price [cite: 35]
+        console.log("Base Price: ₹" + basePrice);
+        // Print the discounted total [cite: 36]
+        console.log("Discount (" + discountPercent + "%): -₹" + discountAmount);
+        console.log("Discounted Total: ₹" + discountedTotal);
+        // Print the final amount [cite: 37]
+        console.log("Service Fee: +₹" + serviceFee);
+        console.log("Final Amount: ₹" + finalAmount);
+    </script>
+</body>
+</html>

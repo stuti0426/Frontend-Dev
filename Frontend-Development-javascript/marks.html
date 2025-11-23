@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4: Marks Analyzer</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 4: The Marks Analyzer</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 4. The Marks Analyzer [cite: 38]
+
+        // --- Input Variables ---
+        // An array of 5 subject marks (out of 100) [cite: 39]
+        let marks = [85, 92, 78, 35, 55]; // Test case 1
+        // let marks = [90, 95, 88, 82, 91]; // Test case 2 (All pass)
+        // let marks = [30, 35, 40, 45, 50]; // Test case 3 (Fail in 2, but avg > 40)
+
+        // --- Logic Implementation ---
+
+        // Initialize variables
+        let totalMarks = 0;
+        let failCount = 0;
+        const numSubjects = marks.length;
+        const maxMarksPerSubject = 100;
+
+        // 1. Calculate Total, Average, and Fail Count using a loop [cite: 49]
+        for (let i = 0; i < numSubjects; i++) {
+            let currentMark = marks[i];
+            
+            // Add to total
+            totalMarks = totalMarks + currentMark;
+            
+            // Check for failure (Below 40 is Fail) [cite: 46]
+            if (currentMark < 40) {
+                failCount = failCount + 1;
+            }
+        }
+
+        // 2. Calculate Average and Percentage [cite: 40]
+        let average = totalMarks / numSubjects;
+        // Assuming 5 subjects, max marks 500
+        let totalPossibleMarks = numSubjects * maxMarksPerSubject;
+        let percentage = (totalMarks / totalPossibleMarks) * 100;
+
+        // 3. Determine the Grade [cite: 41]
+        let grade = '';
+        if (average >= 90) {
+            grade = 'A+'; // [cite: 42]
+        } else if (average >= 75) { // 75-89
+            grade = 'A'; // [cite: 43]
+        } else if (average >= 60) { // 60-74
+            grade = 'B'; // [cite: 44]
+        } else if (average >= 40) { // 40-59
+            grade = 'C'; // [cite: 45]
+        } else {
+            grade = 'Fail'; // [cite: 46]
+        }
+
+        // 4. Determine Final Status (Pass/Repeat)
+        let finalStatus = '';
+
+        // Rule: If student fails in >= 2 subjects, print "Repeat Year" [cite: 48]
+        if (failCount >= 2) {
+            finalStatus = "Repeat Year";
+        } else if (grade === 'Fail') {
+            finalStatus = "Repeat Year"; // Also fails if average is < 40
+        } else {
+            finalStatus = "Promoted";
+        }
+
+        // --- Output ---
+        console.log("--- Marks Analyzer ---");
+        console.log("Marks: " + marks.join(', '));
+        console.log("------------------------");
+        console.log("Total Marks: " + totalMarks + " / " + totalPossibleMarks);
+        console.log("Average: " + average.toFixed(2)); // [cite: 40]
+        console.log("Percentage: " + percentage.toFixed(2) + "%"); // [cite: 40]
+        console.log("Subjects Failed: " + failCount);
+        console.log("Grade: " + grade); // [cite: 41]
+        console.log("Final Status: " + finalStatus); // [cite: 48]
+    </script>
+</body>
+</html>

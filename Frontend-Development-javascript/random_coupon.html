@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 10: Random Coupon</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 10: The Random Coupon Generator</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 10. The Random Coupon Generator [cite: 102]
+
+        // --- Helper Function: Prime Number Check [cite: 113] ---
+        /**
+         * Checks if a given number is prime.
+         * @param {number} num The number to check.
+         * @returns {boolean} True if the number is prime, false otherwise.
+         */
+        function isPrime(num) {
+            // 1 and numbers less than 1 are not prime.
+            if (num <= 1) {
+                return false;
+            }
+            // Check for factors from 2 up to the square root of the number.
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false; // Found a factor, not prime.
+                }
+            }
+            return true; // No factors found, it's prime.
+        }
+
+        // --- Logic Implementation ---
+
+        // 1. Generate a random number between 1-100 [cite: 104]
+        // Math.random() gives 0.0-0.999...
+        // * 100 gives 0.0-99.999...
+        // Math.floor() gives 0-99
+        // + 1 gives 1-100
+        let couponNumber = Math.floor(Math.random() * 100) + 1;
+
+        // 2. Determine the reward message
+        let rewardMessage = '';
+
+        // Rule: If number ≤ 30 -> 10% [cite: 105, 106]
+        if (couponNumber <= 30) {
+            rewardMessage = "You won a 10% discount";
+        }
+        // Rule: If 31-60 -> 20% [cite: 107, 108]
+        else if (couponNumber <= 60) {
+            rewardMessage = "You won a 20% discount";
+        }
+        // Rule: If 61-90 -> 30% [cite: 110]
+        else if (couponNumber <= 90) {
+            rewardMessage = "You won a 30% discount";
+        }
+        // Rule: If 91-100 -> 50% [cite: 111]
+        else {
+            rewardMessage = "You won a 50% Mega Offer!";
+        }
+
+        // --- Output ---
+        console.log("--- Random Coupon Generator ---");
+        
+        // Print the coupon number and the reward message [cite: 112]
+        console.log("Your Coupon Number: " + couponNumber);
+        console.log("Reward: " + rewardMessage);
+
+        // 3. Check for prime number bonus [cite: 113]
+        if (isPrime(couponNumber)) {
+            console.log("BONUS: Prime number bonus applied!");
+        }
+    </script>
+</body>
+</html>

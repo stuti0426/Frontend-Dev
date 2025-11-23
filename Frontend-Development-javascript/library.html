@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 9: Library Fine</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 9: The Library Fine Calculator</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 9. The Library Fine Calculator [cite: 93]
+
+        // --- Input Variables ---
+        // Use an array to hold the delay for multiple books [cite: 101]
+        let daysLateArray = [3, 8, 12]; // Book 1: 3 days, Book 2: 8 days, Book 3: 12 days
+        // let daysLateArray = [3, 8, 12, 5]; // Test case for penalty
+
+        // --- Logic Implementation ---
+
+        // Initialize total fine
+        let totalFine = 0;
+        let bookFines = []; // To store individual fines for the summary
+
+        // 1. Use a loop to calculate the fine for each book [cite: 101]
+        for (let i = 0; i < daysLateArray.length; i++) {
+            let days = daysLateArray[i];
+            let bookFine = 0;
+
+            // Rule: 1-5 days → ₹10 per day [cite: 95]
+            if (days >= 1 && days <= 5) {
+                bookFine = days * 10;
+            }
+            // Rule: 6-10 days → ₹20 per day [cite: 96, 97]
+            else if (days >= 6 && days <= 10) {
+                bookFine = days * 20;
+            }
+            // Rule: 11+ days → ₹50 per day [cite: 98, 99]
+            else if (days >= 11) {
+                bookFine = days * 50;
+            }
+            
+            // Add this book's fine to the total
+            totalFine = totalFine + bookFine;
+            // Store it for the summary
+            bookFines.push({ days: days, fine: bookFine });
+        }
+
+        // 2. Calculate Additional Penalty
+        let penalty = 0;
+        let numDelayedReturns = daysLateArray.length;
+
+        // Rule: If user has > 3 delayed returns, add ₹200 penalty [cite: 100]
+        if (numDelayedReturns > 3) {
+            penalty = 200;
+        }
+
+        // 3. Calculate Final Total Fine
+        let finalFine = totalFine + penalty;
+
+        // --- Output ---
+        // Display a detailed fine summary [cite: 101]
+        console.log("--- Library Fine Summary ---");
+        console.log("Number of late books: " + numDelayedReturns);
+        
+        // Loop through and show individual fines
+        bookFines.forEach(function(item, index) {
+            console.log("Book " + (index + 1) + " (" + item.days + " days late): ₹" + item.fine);
+        });
+        
+        console.log("------------------------------");
+        console.log("Total Book Fines: ₹" + totalFine);
+        
+        // Show penalty if applied
+        if (penalty > 0) {
+            console.log("Penalty ( > 3 late books): +₹" + penalty);
+        }
+        
+        console.log("Total Fine Due: ₹" + finalFine);
+    </script>
+</body>
+</html>

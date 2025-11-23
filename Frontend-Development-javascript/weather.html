@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 5: Weather Alert</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 5: The Weather Alert System</h1>
+    <p>Please check the browser console (Ctrl+Shift+I) for the output.</p>
+    
+    <script>
+        // 5. The Weather Alert System [cite: 50]
+
+        // --- Input Variables ---
+        // Change these to test different scenarios.
+        let temperature = 25; // in Celsius
+        let humidity = 60; // in %
+        let windSpeed = 15; // in km/h
+
+        // --- Logic Implementation ---
+
+        // 1. Determine Event Safety Status
+        let eventStatus = '';
+
+        // Rule: If temp > 35 AND humidity > 70 -> "Cancel: Heat Alert" [cite: 52]
+        if (temperature > 35 && humidity > 70) {
+            eventStatus = "Cancel: Heat Alert.";
+        // Rule: If temp < 10 OR windSpeed > 40 -> "Cancel: Cold/Windy Alert" [cite: 53]
+        } else if (temperature < 10 || windSpeed > 40) {
+            eventStatus = "Cancel: Cold/Windy Alert.";
+        // Rule: Otherwise -> "Event Approved" [cite: 54]
+        } else {
+            eventStatus = "Event Approved.";
+        }
+
+        // 2. Determine Clothing/Hydration Advice [cite: 55]
+        let adviceMessage = '';
+
+        // Rule: Below 20°C -> "Wear Jacket" [cite: 56]
+        if (temperature < 20) {
+            adviceMessage = "Wear Jacket";
+        // Rule: 20-30°C -> "Comfortable" [cite: 57]
+        } else if (temperature >= 20 && temperature <= 30) {
+            adviceMessage = "Comfortable";
+        // Rule: Above 30°C -> "Stay Hydrated" [cite: 58]
+        } else { // This covers "Above 30°C"
+            adviceMessage = "Stay Hydrated";
+        }
+
+        // --- Output ---
+        console.log("--- Weather Alert System ---");
+        console.log("Temperature: " + temperature + "°C");
+        console.log("Humidity: " + humidity + "%");
+        console.log("Wind Speed: " + windSpeed + " km/h");
+        console.log("------------------------------");
+
+        // Print the event status
+        console.log("Event Status: " + eventStatus);
+
+        // Print the advice message
+        console.log("Weather Advice: " + adviceMessage);
+    </script>
+</body>
+</html>
