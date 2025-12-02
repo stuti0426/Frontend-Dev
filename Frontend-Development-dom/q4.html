@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Switcher</title>
+    <style>
+        body { font-family: sans-serif; padding: 40px; transition: background 0.3s, color 0.3s; }
+        
+        /* Default Light Theme */
+        body[data-theme="light"] { background-color: #ffffff; color: #000000; }
+        
+        /* Dark Theme */
+        body[data-theme="dark"] { background-color: #333333; color: #ffffff; }
+        
+        /* Blue Theme */
+        body[data-theme="blue"] { background-color: #e3f2fd; color: #0d47a1; }
+
+        button { padding: 10px 20px; margin-right: 10px; cursor: pointer; border: 1px solid #ccc; }
+    </style>
+</head>
+<body data-theme="light">
+
+    <h1>Theme Switcher</h1>
+    <p>Click a button below to change the website theme using setAttribute.</p>
+
+    <button onclick="setTheme('light')">Light Mode</button>
+    <button onclick="setTheme('dark')">Dark Mode</button>
+    <button onclick="setTheme('blue')">Blue Mode</button>
+
+    <script>
+        function setTheme(themeName) {
+            // Using setAttribute as requested
+            document.body.setAttribute('data-theme', themeName);
+            
+            // Optional: Adding a class to body as requested by point 31 ("adds a class")
+            // though point 33 emphasizes data-theme attribute. I will sync them.
+            document.body.className = themeName + '-theme'; 
+        }
+    </script>
+</body>
+</html>

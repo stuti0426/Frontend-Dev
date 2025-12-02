@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Blocker</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; display: flex; justify-content: center;}
+        form { width: 300px; border: 1px solid #ccc; padding: 20px; border-radius: 5px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 8px; box-sizing: border-box; }
+        .error-msg { color: red; font-size: 12px; display: none; margin-top: 5px; }
+        button { background: green; color: white; padding: 10px; width: 100%; border: none; cursor: pointer; }
+        #successMsg { color: green; font-weight: bold; display: none; text-align: center; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <form id="validateForm" novalidate>
+        <h3>Register</h3>
+        
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" id="name" required>
+            <span class="error-msg">Name is required.</span>
+        </div>
+
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="email" required>
+            <span class="error-msg">Must be a valid email (include @).</span>
+        </div>
+
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" id="password" minlength="6" required>
+            <span class="error-msg">Password must be at least 6 chars.</span>
+        </div>
+
+        <button type="submit">Submit</button>
+        <div id="successMsg">Form Submitted Successfully!</div>
+    </form>
+
+    <script>
+        const form = document.getElementById('validateForm');
+        const inputs = form.querySelectorAll('input');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', (e) => {
+            let isValid = true;
+            successMsg.style.display = 'none';
+
+            // 1. Check Name
+            const nameInput = document.getElementById('name');
+            if (nameInput.value.trim() === '') {
+                showError(nameInput);
+                isValid = false;
+            }
+
+            // 2. Check Email
+            const emailInput = document.getElementById('email');
+            if (!emailInput.value.includes('@')) {
+                showError(emailInput);
+                isValid = false;
+            }
+
+            // 3. Check Password
+            const passInput = document.getElementById('password');
+            if (passInput.value.length < 6) {
+                showError(passInput);
+                isValid = false;
+            }
+
+            // Block submission if invalid
+            if (!isValid) {
+                e.preventDefault();
+            } else {
+                // If valid, preventing actual submit for demo purposes to show message
+                e.preventDefault();
+                successMsg.style.display = 'block';
+                form.reset();
+            }
+        });
+
+        function showError(inputElement) {
+            const errorSpan = inputElement.nextElementSibling;
+            errorSpan.style.display = 'block';
+            inputElement.style.borderColor = 'red';
+        }
+
+        // Auto-hide error on input
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                const errorSpan = this.nextElementSibling;
+                errorSpan.style.display = 'none';
+                this.style.borderColor = '#ccc';
+            });
+        });
+    </script>
+</body>
+</html>

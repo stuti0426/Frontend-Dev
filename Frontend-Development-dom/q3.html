@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Step Form</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; display: flex; justify-content: center; }
+        .form-container { width: 300px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
+        .step { display: none; } /* Hidden by default */
+        .step.active { display: block; } /* Visible class */
+        input { width: 100%; padding: 8px; margin: 10px 0; box-sizing: border-box; }
+        .btn-group { display: flex; justify-content: space-between; margin-top: 15px; }
+        button { padding: 8px 16px; cursor: pointer; }
+        .error { color: red; font-size: 12px; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="step active" id="step1">
+            <h3>Step 1: Personal Info</h3>
+            <label>Name:</label>
+            <input type="text" id="nameInput">
+            <div class="error" id="err1">Name is required.</div>
+            <div class="btn-group">
+                <div></div> <button onclick="nextStep(1)">Next</button>
+            </div>
+        </div>
+
+        <div class="step" id="step2">
+            <h3>Step 2: Contact</h3>
+            <label>Email:</label>
+            <input type="email" id="emailInput">
+            <div class="error" id="err2">Valid email required.</div>
+            <div class="btn-group">
+                <button onclick="prevStep(2)">Back</button>
+                <button onclick="nextStep(2)">Next</button>
+            </div>
+        </div>
+
+        <div class="step" id="step3">
+            <h3>Step 3: Security</h3>
+            <label>Password:</label>
+            <input type="password" id="passInput">
+            <div class="error" id="err3">Password cannot be empty.</div>
+            <div class="btn-group">
+                <button onclick="prevStep(3)">Back</button>
+                <button onclick="submitForm()">Submit</button>
+            </div>
+        </div>
+
+        <div class="step" id="summary">
+            <h3>Summary</h3>
+            <p><strong>Name:</strong> <span id="sumName"></span></p>
+            <p><strong>Email:</strong> <span id="sumEmail"></span></p>
+            <p style="color: green;">Form Completed Successfully!</p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(currentStep) {
+            let valid = false;
+            
+            // Validation Logic
+            if (currentStep === 1) {
+                const val = document.getElementById('nameInput').value.trim();
+                valid = val.length > 0;
+                document.getElementById('err1').style.display = valid ? 'none' : 'block';
+            } 
+            else if (currentStep === 2) {
+                const val = document.getElementById('emailInput').value.trim();
+                valid = val.includes('@') && val.includes('.');
+                document.getElementById('err2').style.display = valid ? 'none' : 'block';
+            }
+
+            if (valid) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                document.getElementById(`step${currentStep + 1}`).classList.add('active');
+            }
+        }
+
+        function prevStep(currentStep) {
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            document.getElementById(`step${currentStep - 1}`).classList.add('active');
+        }
+
+        function submitForm() {
+            const pass = document.getElementById('passInput').value;
+            if (pass.length === 0) {
+                document.getElementById('err3').style.display = 'block';
+                return;
+            }
+
+            // Show Summary
+            document.getElementById('step3').classList.remove('active');
+            document.getElementById('summary').classList.add('active');
+
+            document.getElementById('sumName').textContent = document.getElementById('nameInput').value;
+            document.getElementById('sumEmail').textContent = document.getElementById('emailInput').value;
+        }
+    </script>
+</body>
+</html>

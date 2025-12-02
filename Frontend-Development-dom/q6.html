@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Filter</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input { padding: 10px; width: 300px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .no-result { display: none; text-align: center; color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Student Records</h2>
+    <input type="text" id="searchInput" placeholder="Search by name...">
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>CGPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Alice Johnson</td><td>CSE</td><td>9.2</td></tr>
+            <tr><td>Bob Smith</td><td>ECE</td><td>8.5</td></tr>
+            <tr><td>Charlie Brown</td><td>MECH</td><td>7.8</td></tr>
+            <tr><td>David Wilson</td><td>CSE</td><td>8.9</td></tr>
+            <tr><td>Eve Adams</td><td>CIVIL</td><td>9.0</td></tr>
+        </tbody>
+        <tfoot>
+            <tr id="noResultRow" class="no-result">
+                <td colspan="3">No results found</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const table = document.getElementById('studentTable');
+        const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+        const noResultRow = document.getElementById('noResultRow');
+
+        searchInput.addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            let visibleCount = 0;
+
+            // Loop through all table rows
+            for (let i = 0; i < rows.length; i++) {
+                const nameCol = rows[i].getElementsByTagName('td')[0];
+                if (nameCol) {
+                    const txtValue = nameCol.textContent || nameCol.innerText;
+                    
+                    // Check if matches
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = ""; // Show
+                        visibleCount++;
+                    } else {
+                        rows[i].style.display = "none"; // Hide
+                    }
+                }
+            }
+
+            // Show "No results" if count is 0
+            if (visibleCount === 0) {
+                noResultRow.style.display = "table-row";
+            } else {
+                noResultRow.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
