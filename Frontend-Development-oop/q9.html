@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q9 Fitness App</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q9. [cite_start]Fitness App Analytics [cite: 137]
+
+        const workoutData = [
+            { user: "A", steps: 8000, calories: 300 },
+            { user: "B", steps: 12000, calories: 500 },
+            { user: "C", steps: 4000, calories: 200 }
+        ];
+
+        class FitnessAnalytics {
+            constructor(data) {
+                this.data = data;
+            }
+
+            validateData() {
+                if (!this.data || this.data.length === 0) {
+                    throw new Error("Dataset is empty.");
+                }
+            }
+
+            [cite_start]// Users with steps > 7000 [cite: 150]
+            getActiveUsers() {
+                this.validateData();
+                return this.data
+                    .filter(u => u.steps > 7000)
+                    .map(u => u.user); // Returning just names for clarity
+            }
+
+            [cite_start]// Average calories [cite: 151]
+            getAverageCalories() {
+                this.validateData();
+                const total = this.data.reduce((sum, u) => sum + u.calories, 0);
+                return total / this.data.length;
+            }
+
+            [cite_start]// Summary messages [cite: 152]
+            getUserSummary() {
+                this.validateData();
+                return this.data.map(u => 
+                    `User ${u.user} walked ${u.steps} steps and burned ${u.calories} cal.`
+                );
+            }
+        }
+
+        try {
+            const analytics = new FitnessAnalytics(workoutData);
+            
+            console.log("Active Users:", analytics.getActiveUsers());
+            console.log("Avg Calories:", analytics.getAverageCalories());
+            console.log("Summaries:", analytics.getUserSummary());
+
+            // Test Empty Error
+            // const emptyAnalytics = new FitnessAnalytics([]);
+            // emptyAnalytics.getActiveUsers(); 
+
+        } catch (e) {
+            console.error(e.message);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q5 Ride Sharing</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q5. Ride-Sharing Application
+
+        class User {
+            constructor(name, rating) {
+                this.name = name;
+                this.rating = rating;
+            }
+        }
+
+        class Driver extends User {
+            constructor(name, rating, vehicle) {
+                super(name, rating);
+                this.vehicle = vehicle;
+            }
+        }
+
+        class Trip {
+            constructor(fromLocation, toLocation, distance) {
+                this.fromLocation = fromLocation;
+                this.toLocation = toLocation;
+                this.distance = distance;
+            }
+
+            calculateFare() {
+                try {
+                    // Validation
+                    if (typeof this.distance !== 'number' || this.distance < 0) {
+                        throw new Error("Invalid distance provided.");
+                    }
+
+                    const ratePerKm = 10;
+                    const fare = this.distance * ratePerKm;
+                    console.log(`Trip from ${this.fromLocation} to ${this.toLocation} (${this.distance}km): $${fare}`);
+                    return fare;
+
+                } catch (error) {
+                    // Handle Error
+                    console.error("Fare Calculation Error:", error.message);
+                }
+            }
+        }
+
+        // Valid Scenario
+        const trip1 = new Trip("Home", "Office", 15);
+        trip1.calculateFare();
+
+        // Invalid Scenario (Negative distance)
+        const trip2 = new Trip("A", "B", -5);
+        trip2.calculateFare();
+
+        // Invalid Scenario (Missing/Null distance)
+        const trip3 = new Trip("X", "Y", null);
+        trip3.calculateFare();
+    </script>
+</body>
+</html>

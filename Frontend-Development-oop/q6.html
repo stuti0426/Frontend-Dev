@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q6 Inventory System</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q6. E-Commerce Inventory System
+        
+        const products = [
+            { id: 1, name: "Laptop", category: "Electronics", price: 1200, stock: 5 },
+            { id: 2, name: "Mouse", category: "Electronics", price: 20, stock: 50 },
+            { id: 3, name: "T-Shirt", category: "Fashion", price: 15, stock: 8 },
+            { id: 4, name: "Jeans", category: "Fashion", price: 40, stock: 20 },
+            { id: 5, name: "Blender", category: "Home", price: 50, stock: 3 } // Low stock
+        ];
+
+        // 1. Get Low Stock Products (< 10 items)
+        const getLowStockProducts = (list) => {
+            return list.filter(p => p.stock < 10);
+        };
+
+        // 2. Sort by Price
+        const sortProductsByPrice = (list) => {
+            // Create a copy to avoid mutating original array
+            return [...list].sort((a, b) => a.price - b.price);
+        };
+
+        // 3. Calculate Total Inventory Value
+        const calculateTotalInventoryValue = (list) => {
+            return list.reduce((total, p) => total + (p.price * p.stock), 0);
+        };
+
+        // 4. Group by Category
+        const groupByCategory = (list) => {
+            return list.reduce((groups, product) => {
+                const category = product.category;
+                if (!groups[category]) {
+                    groups[category] = [];
+                }
+                groups[category].push(product);
+                return groups;
+            }, {});
+        };
+
+        // Executing Functions
+        console.log("Low Stock:", getLowStockProducts(products));
+        console.log("Sorted by Price:", sortProductsByPrice(products));
+        console.log("Total Inventory Value:", calculateTotalInventoryValue(products));
+        console.log("Grouped by Category:", groupByCategory(products));
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q4 Employee Inheritance</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q4. Employee Inheritance
+
+        // Base Class
+        class Employee {
+            constructor(name, department) {
+                this.name = name;
+                this.department = department;
+            }
+
+            work() {
+                console.log(`${this.name} is working in ${this.department}.`);
+            }
+        }
+
+        // Derived Class
+        class Manager extends Employee {
+            constructor(name, department, teamSize) {
+                super(name, department);
+                this.teamSize = teamSize;
+            }
+
+            // Override work method
+            work() {
+                console.log(`${this.name} is managing a team of ${this.teamSize} people in ${this.department}.`);
+            }
+        }
+
+        // Runtime Polymorphism Demonstration
+        const emp = new Employee("John", "IT");
+        const mgr = new Manager("Sarah", "IT", 10);
+
+        const staff = [emp, mgr];
+
+        console.log("--- Runtime Polymorphism ---");
+        staff.forEach(person => {
+            person.work(); // Executes different logic depending on the object type
+        });
+    </script>
+</body>
+</html>

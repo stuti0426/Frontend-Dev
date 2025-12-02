@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q2 Food Ordering</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q2. Online Food Ordering
+        
+        // Menu items with prices
+        const menu = [
+            { id: 1, name: "Burger", price: 150 },
+            { id: 2, name: "Pizza", price: 300 },
+            { id: 3, name: "Pasta", price: 200 },
+            { id: 4, name: "Coke", price: 50 }
+        ];
+
+        function calculateBill(orderItemNames) {
+            try {
+                // 1. Map to get prices (and validate)
+                const prices = orderItemNames.map(itemName => {
+                    const item = menu.find(i => i.name.toLowerCase() === itemName.toLowerCase());
+                    
+                    // Throw error if invalid
+                    if (!item) {
+                        throw new Error(`Item '${itemName}' not found on the menu.`);
+                    }
+                    return item.price;
+                });
+
+                // 2. Reduce to calculate total
+                const totalBill = prices.reduce((acc, price) => acc + price, 0);
+                
+                console.log(`Order: ${orderItemNames.join(", ")}`);
+                console.log(`Total Bill: $${totalBill}`);
+
+            } catch (error) {
+                // Handle error meaningfully
+                console.error("Error Processing Order:", error.message);
+            }
+        }
+
+        // Test Cases
+        calculate

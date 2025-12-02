@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q3 Product Discount</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q3. Product Discount System
+
+        // Constructor Function
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        // Prototype method to apply discount
+        Product.prototype.applyDiscount = function(percent) {
+            const discountAmount = (this.price * percent) / 100;
+            return this.price - discountAmount;
+        };
+
+        // Create 3 products
+        const p1 = new Product("Laptop", 1000);
+        const p2 = new Product("Phone", 500);
+        const p3 = new Product("Headphones", 100);
+
+        // Apply different discounts
+        console.log(`Original: ${p1.name} ($${p1.price}) -> After 10% off: $${p1.applyDiscount(10)}`);
+        console.log(`Original: ${p2.name} ($${p2.price}) -> After 20% off: $${p2.applyDiscount(20)}`);
+        console.log(`Original: ${p3.name} ($${p3.price}) -> After 50% off: $${p3.applyDiscount(50)}`);
+
+        // Abstraction explanation
+        console.log("\nAbstraction Note: The complexity of the math is hidden inside the applyDiscount method. The user just passes the percentage.");
+    </script>
+</body>
+</html>

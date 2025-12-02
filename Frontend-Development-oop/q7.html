@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q7 Banking App</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q7. [cite_start]Banking Application [cite: 115]
+        
+        class BankAccount {
+            #balance; [cite_start]// Private field [cite: 117]
+
+            constructor(initialBalance = 0) {
+                this.#balance = initialBalance;
+            }
+
+            deposit(amount) {
+                if (amount > 0) {
+                    this.#balance += amount;
+                    console.log(`Deposited: $${amount}. New Balance: $${this.#balance}`);
+                } else {
+                    console.log("Invalid deposit amount.");
+                }
+            }
+
+            withdraw(amount) {
+                [cite_start]// Throw error if insufficient [cite: 122]
+                if (amount > this.#balance) {
+                    throw new Error(`Insufficient funds! Current balance: $${this.#balance}`);
+                }
+                this.#balance -= amount;
+                console.log(`Withdrew: $${amount}. New Balance: $${this.#balance}`);
+            }
+
+            getBalance() {
+                return this.#balance;
+            }
+        }
+
+        [cite_start]// Demonstrate [cite: 123]
+        const myAccount = new BankAccount(100);
+
+        try {
+            myAccount.deposit(50);   // Valid deposit
+            myAccount.withdraw(30);  // Valid withdrawal
+            myAccount.withdraw(200); // Invalid withdrawal (Should throw error)
+        } catch (error) {
+            console.error("Transaction Failed:", error.message);
+        }
+    </script>
+</body>
+</html>

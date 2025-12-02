@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q8 Movie Ticket</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q8. [cite_start]Movie Ticket Booking System [cite: 126]
+
+        class MovieTicket {
+            constructor(movieName, seatNo, price) {
+                this.movieName = movieName;
+                this.seatNo = seatNo;
+                this.price = price;
+            }
+        }
+
+        [cite_start]// Add method to Prototype [cite: 135]
+        MovieTicket.prototype.printTicket = function() {
+            console.log(`[TICKET] Movie: ${this.movieName}, Seat: ${this.seatNo}, Price: $${this.price}`);
+        };
+
+        class OnlineTicket extends MovieTicket {
+            constructor(movieName, seatNo, price, convenienceFee) {
+                super(movieName, seatNo, price);
+                this.convenienceFee = convenienceFee;
+            }
+
+            getTotalAmount() {
+                return this.price + this.convenienceFee;
+            }
+        }
+
+        [cite_start]// Demonstrate Prototype Chain [cite: 136]
+        const ticket = new OnlineTicket("Avengers", "A12", 200, 30);
+        
+        // This calls the method from the parent's prototype
+        ticket.printTicket(); 
+        
+        console.log(`Total Amount (incl. fee): $${ticket.getTotalAmount()}`);
+    </script>
+</body>
+</html>

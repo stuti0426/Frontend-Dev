@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q1 Student Results</title>
+</head>
+<body>
+    <h2>Open Console to see output (F12)</h2>
+    <script>
+        // Q1. Student Result Processing
+        class Student {
+            constructor(name, marks) {
+                this.name = name;
+                this.marks = marks;
+            }
+
+            // Calculate average using reduce
+            calculateAverage() {
+                if (this.marks.length === 0) return 0;
