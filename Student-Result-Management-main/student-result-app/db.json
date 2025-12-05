@@ -1,0 +1,46 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "section": "A",
+      "marks": 85,
+      "grade": "A"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "section": "B",
+      "marks": 92,
+      "grade": "A+"
+    },
+    {
+      "name": "Gaurav Chaudhary",
+      "section": "EB",
+      "marks": "87",
+      "grade": "A",
+      "id": "77X20Ib"
+    },
+    {
+      "name": "Balkrishna Goswami",
+      "section": "EB",
+      "marks": "82",
+      "grade": "B+",
+      "id": "ZUlJcbg"
+    },
+    {
+      "name": "Ichcha Mehrishi",
+      "section": "EB",
+      "marks": "90",
+      "grade": "A+",
+      "id": "JuQLJOA"
+    },
+    {
+      "name": "Rudraksh Mahajan",
+      "section": "EB",
+      "marks": "86",
+      "grade": "A",
+      "id": "OsqnmeR"
+    }
+  ]
+}
