@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q1 Live Search</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #results { margin-top: 10px; }
+    .product { display:flex; gap:10px; margin:8px 0; align-items:center; }
+    .loading { display:none; }
+  </style>
+</head>
+<body>
+  <h2>Live Search (Products)</h2>
+  <input id="search" placeholder="Type to search products..." autocomplete="off">
+  <span class="loading" id="loading">Loading...</span>
+  <div id="results"></div>
+
+  <script>
+    const API = 'http://localhost:3001/products';
+    $(function(){
+      let ajaxRequest = null;
+      $('#search').on('input', function(){
+        const q = $(this).val().trim();
+        $('#results').empty();
+        if (ajaxRequest) ajaxRequest.abort(); // cancel previous
+        if(q===''){ $('#loading').hide(); $('#results').text(''); return; }
+        $('#loading').show();
+
+        ajaxRequest = $.ajax({
+          url: API,
+          data: { q: q },
+          method: 'GET',
+          timeout: 5000
+        }).done(function(data){
+          $('#results').empty();
+          if (!data || data.length === 0) {
+            $('#results').text('No products found');
+            return;
+          }
+          data.forEach(p => {
+            const html = `<div class="product">
+              <img src="${p.image}" width="80" height="80" alt="${p.name}">
+              <div><strong>${p.name}</strong><br>₹ ${p.price}</div>
+            </div>`;
+            $('#results').append(html);
+          });
+        }).fail(function(xhr, status){
+          if (status !== 'abort') $('#results').text('Error loading products');
+        }).always(function(){ $('#loading').hide(); });
+      });
+    });
+  </script>
+</body>
+</html>

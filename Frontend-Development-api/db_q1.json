@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Red T-shirt",
+      "price": 199,
+      "image": "https://via.placeholder.com/80?text=Red+T"
+    },
+    {
+      "id": 2,
+      "name": "Blue Jeans",
+      "price": 1299,
+      "image": "https://via.placeholder.com/80?text=Blue+Jeans"
+    },
+    {
+      "id": 3,
+      "name": "Running Shoes",
+      "price": 2499,
+      "image": "https://via.placeholder.com/80?text=Shoes"
+    },
+    {
+      "id": 4,
+      "name": "Leather Belt",
+      "price": 499,
+      "image": "https://via.placeholder.com/80?text=Belt"
+    },
+    {
+      "id": 5,
+      "name": "Sports Cap",
+      "price": 299,
+      "image": "https://via.placeholder.com/80?text=Cap"
+    }
+  ]
+}

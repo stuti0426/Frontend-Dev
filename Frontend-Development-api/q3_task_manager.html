@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q3 Task Manager</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .task { margin:8px 0; }
+  </style>
+</head>
+<body>
+  <h2>Task Manager</h2>
+  <label>Filter:
+    <select id="filter">
+      <option value="">All</option>
+      <option value="priority=Low">Low Priority</option>
+      <option value="priority=Medium">Medium Priority</option>
+      <option value="priority=High">High Priority</option>
+      <option value="completed=true">Completed</option>
+    </select>
+  </label>
+  <div id="tasks"></div>
+
+  <script>
+    const API = 'http://localhost:3003/tasks';
+    function load(query){
+      let url = API;
+      if (query) url += '?' + query;
+      $.ajax({ url: url, method: 'GET' })
+      .done(function(data){
+        $('#tasks').empty();
+        if (!data || data.length === 0) { $('#tasks').text('No tasks'); return; }
+        data.forEach(t => {
+          const checked = t.completed ? 'checked' : '';
+          const html = `<div class="task" data-id="${t.id}">
+            <input type="checkbox" class="chk" ${checked}> <strong>${t.title}</strong> - ${t.priority}
+          </div>`;
+          $('#tasks').append(html);
+        });
+      }).fail(function(){ $('#tasks').text('Error loading tasks'); });
+    }
+
+    $('#filter').on('change', function(){
+      const val = $(this).val();
+      load(val);
+    });
+
+    $('#tasks').on('change', '.chk', function(){
+      const div = $(this).closest('.task');
+      const id = div.data('id');
+      const completed = $(this).is(':checked');
+      $.ajax({
+        url: API + '/' + id,
+        method: 'PATCH',
+        contentType: 'application/json',
+        data: JSON.stringify({ completed: completed })
+      }).fail(function(){
+        // revert checkbox on failure
+        alert('Failed to update task');
+        $(this).prop('checked', !completed);
+        // reload to be safe
+        load($('#filter').val());
+      }.bind(this));
+    });
+
+    // initial load
+    load('');
+  </script>
+</body>
+</html>

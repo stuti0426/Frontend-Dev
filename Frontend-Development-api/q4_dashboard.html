@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q4 Multi-API Dashboard</title>
+  <style>
+    .skeleton { background:#eee; height:20px; width:150px; margin:6px 0; }
+    .warning { color:orange; }
+  </style>
+</head>
+<body>
+  <h2>Dashboard</h2>
+  <div id="warning" class="warning" style="display:none;">Some data could not be loaded.</div>
+  <div id="users">Users: <span id="ucount"></span></div>
+  <div id="orders">Orders: <span id="ocount"></span></div>
+  <div id="products">Products: <span id="pcount"></span></div>
+
+  <script>
+    const base = 'http://localhost:3004';
+    const uEl = document.getElementById('ucount');
+    const oEl = document.getElementById('ocount');
+    const pEl = document.getElementById('pcount');
+    const warn = document.getElementById('warning');
+
+    // show skeletons
+    uEl.textContent = '...'; oEl.textContent = '...'; pEl.textContent = '...';
+
+    const fetchUsers = fetch(base + '/users').then(r => r.json());
+    const fetchOrders = fetch(base + '/orders').then(r => r.json());
+    const fetchProducts = fetch(base + '/products').then(r => r.json());
+
+    Promise.all([fetchUsers.catch(e => null), fetchOrders.catch(e => null), fetchProducts.catch(e => null)])
+    .then(([users, orders, products]) => {
+      let anyFail = false;
+      if (!users) { anyFail = true; uEl.textContent = 'N/A'; } else uEl.textContent = users.length;
+      if (!orders) { anyFail = true; oEl.textContent = 'N/A'; } else oEl.textContent = orders.length;
+      if (!products) { anyFail = true; pEl.textContent = 'N/A'; } else pEl.textContent = products.length;
+      if (anyFail) {
+        warn.style.display = 'block';
+        warn.textContent = 'Some data could not be loaded.';
+      }
+    });
+  </script>
+</body>
+</html>
